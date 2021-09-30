@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  web:
+    image: nginx:alpine
+    volumes:
+      - ./config/:/etc/nginx/conf.d/
+    # Mapping port 80 of Container to port 8080 of Host
+    ports:
+      - "8080:80"
