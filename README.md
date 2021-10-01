@@ -36,6 +36,10 @@ server {
     # Proxy from http://localhost inside Container to http://localhost:3000 of Host
     location / {
         proxy_pass http://host.docker.internal:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header Host $host;
     }
 
     # Other proxies ...
